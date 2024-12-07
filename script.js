@@ -1,3 +1,5 @@
+//Week 9 Assignment: Crreate an automated version of the classic card game WAR!
+//
 // Class for the deck of cards containing the suits, ranks, and method to create a deck of 52 cards.
 class Deck {
     constructor() {
@@ -44,16 +46,19 @@ class Deck {
 
 }
 
+//Class for the game to run with two players.
 class Game {
-    //Create two players
+    //Create two players and ask the user to enter their names
     constructor() {
+        let name1 = prompt(`Enter the name of Player 1: `)
+        let name2 = prompt(`Enter the name of Player 2: `)
         this.player1 = {
-            name: "Player 1",
+            name: name1,
             score: 0,
             hand: []
         }
         this.player2 = {
-            name: "Player 2",
+            name: name2,
             score: 0,
             hand: []
         }
@@ -74,45 +79,45 @@ class Game {
             if (this.player1.hand[i].value > this.player2.hand[i].value) {
                 this.player1.score ++
                 console.log (`
-                    P1 Card: ${this.player1.hand[i].name}
-                    P2 Card: ${this.player2.hand[1].name}
-                    Player 1 wins this round!
-                    Current score: P1: ${this.player1.score}, P2: ${this.player2.score}
+                    ${this.player1.name}'s Card: ${this.player1.hand[i].name}
+                    ${this.player2.name}'s Card: ${this.player2.hand[1].name}
+                    ${this.player1.name} wins this round!
+                    Current score: ${this.player1.name}: ${this.player1.score}, ${this.player2.name}: ${this.player2.score}
                     `)
             } else if (this.player2.hand[i].value > this.player1.hand[i].value) {
                 this.player2.score ++
                 console.log (`
-                    P1 Card: ${this.player1.hand[i].name}
-                    P2 Card: ${this.player2.hand[1].name}
-                    Player 2 wins this round!
-                    Current score: P1: ${this.player1.score}, P2: ${this.player2.score}
+                    ${this.player1.name}'s Card: ${this.player1.hand[i].name}
+                    ${this.player2.name}'s Card: ${this.player2.hand[1].name}
+                    ${this.player2.name} wins this round!
+                    Current score: ${this.player1.name}: ${this.player1.score}, ${this.player2.name}: ${this.player2.score}
                     `)
 
             } else {
                 console.log (`
-                    P1 Card: ${this.player1.hand[i].name}
-                    P2 Card: ${this.player2.hand[1].name}
+                    ${this.player1.name}'s Card: ${this.player1.hand[i].name}
+                    ${this.player2.name}'s Card: ${this.player2.hand[1].name}
                     Tie! No points awarded this round. 
-                    Current score: P1: ${this.player1.score}, P2: ${this.player2.score}
+                    Current score: ${this.player1.name}: ${this.player1.score}, ${this.player2.name}: ${this.player2.score}
                     `)
             }
 
         } 
     // Compare the scores and declare a winner (or tie)
     if (this.player1.score > this.player2.score) {
-        console.log(`Player 1 wins!
-        FINAL SCORE: P1: ${this.player1.score}
-                     P2: ${this.player2.score}
+        console.log(`${this.player1.name} Wins!
+        FINAL SCORE: ${this.player1.name}: ${this.player1.score}
+                     ${this.player2.name}: ${this.player2.score}
         `)
     } else if (this.player2.score > this.player1.score) {
-        console.log(`Player 2 wins!
-        FINAL SCORE: P1: ${this.player1.score}
-                     P2: ${this.player2.score}
+        console.log(`${this.player2.name} Wins!
+        FINAL SCORE: ${this.player1.name}: ${this.player1.score}
+                     ${this.player2.name}: ${this.player2.score}
         `)
     } else {
-        console.log(`It's a tie!
-        FINAL SCORE: P1: ${this.player1.score}
-                     P2: ${this.player2.score}
+        console.log(`It's a Tie!
+        FINAL SCORE: ${this.player1.name}: ${this.player1.score}
+                     ${this.player2.name}: ${this.player2.score}
         `)
     }
 
