@@ -35,6 +35,7 @@ class Deck {
         }
     }
 
+    // Shuffle the deck of cards using the Fisher-Yates Shuffle algorithm 
     shuffleDeck() {
         for (let i = this.deck.length - 1; i > 0; i--) {
             let j = Math.floor(Math.random() * (i + 1));
